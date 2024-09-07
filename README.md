@@ -275,3 +275,30 @@ Router(config)#  network 20.0.0.0
 Router(config)#  network 10.10.10.4
 Router(config)#  network 10.10.10.0
 Router(config) # do wr
+
+#Performance Evaluation
+•	Link speeds between core, distribution, and access layers are adequate (mostly Gigabit Ethernet), ensuring sufficient bandwidth.
+•	Traffic analysis shows balanced load distribution with no significant bottlenecks.
+
+Bottlenecks:
+•	No single points of failure detected. The network design ensures multiple paths for traffic flow.
+
+-Scalability
+IP Addressing Scheme:
+•	Subnetting allows for future growth. Private IP address ranges are used effectively, with enough subnets available for expansion.
+•	Network Address Translation (NAT) is used for external access, conserving public IP addresses.
+
+-Expandability:
+•	The design allows easy addition of new devices or segments. New VLANs can be added with minimal reconfiguration.
+
+-Reliability
+Redundancy:
+•	Redundant links are present between core and distribution layers, providing failover capabilities.
+•	Load balancing is configured, distributing traffic evenly and preventing overload on individual links.
+
+-Security 
+VLAN Segmentation:
+•	VLANs are used to segment traffic, separating sensitive data from other network traffic.
+•	Security policies enforce the separation of traffic, ensuring data integrity and 
+ confidentiality.
+
