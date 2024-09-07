@@ -1,14 +1,15 @@
 Benue State University is a large institution of learning located in the north-central of Nigeria. The University has two campuses, the main and branch campus. The two campuses are situated 30 miles apart. The University’s students and staff are distributed into 4 faculties, these include the faculty of Health & Science, Economics, Engineering & Computing and ART& Design. Each member of the staff has PCs and Student access to PCs in the LABs.
 Requirement
 You are expected to create:
-1.	A network topology with the main component to support the following
+
+#A network topology with the main component to support the following
 -Main Campus 
  -Building A – Administrative staff in the department of management, HR and Finance. The administrative staff PCs are distributed in the building offices and it is expected that they will share some networking equipment. The faculty of Economics is also situated in the building.
  -Building B – Faculty of Engineering & Computing and faculty of Art & Design
  -Building C: Student’s lab and IT department. The IT department hosts the University Web Server and other Servers. There is also an email server hosted externally on the cloud.
  -Branch Campus: Faculty of Health & Science ( Staff and Students Lan are located on separate floors).
-2.	You will be required to configure the core device and a few end devices to provide end-end connectivity and access to the internal servers and external servers.
 
+#You will be required to configure the core device and a few end devices to provide end-end connectivity and access to the internal servers and external servers.
 -Each department/faculty is expected to be on their separate network
 -The switch should be configured with appropriate VLAN and Security Settings
 -Ripv2 will be used to provide routing for routers in the internal network and static routing for the external server.
