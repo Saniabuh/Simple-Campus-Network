@@ -43,13 +43,15 @@ ii.	Branch Campus
 Staff – 192.168.9.0 with Subnet mask of 255.255.255.0 (Class C)
 Student’s Lab – 192.168.10.0 with Subnet mask of 255.255.255.0 (Class C)
 
-iii.	Cloud Router
+Cloud Router
 Network 1– 20.0.0.0 with Subnet Mask 255.255.255.252 (Class A)
 Network 2 – 10.10.10.4 with Subnet Mask 255.255.255.252 (Class A)
-iv.	Main Campus Router
+
+Main Campus Router
 Network 1 – 10.10.10.0 with Subnet Mask 255.255.255.252 (Class A)
 Network 2 – 10.10.10.4 with Subnet Mask 255.255.255.252 (Class A)
-v.	Branch Campus Router
+
+Branch Campus Router
 Network 1 – 10.10.10.0 with Subnet Mask 255.255.255.252 (Class A)
 
 #The Topology
@@ -57,15 +59,16 @@ Network 1 – 10.10.10.0 with Subnet Mask 255.255.255.252 (Class A)
 
 # Task 2: Configuration
 In this section, The configuration process will be done. The logical configuration involves interfaces, inter-vlan routing, DHCP, Routing using RIPV2 and Mail Server configuration. To kick the start of the configuration, We first power on the interface on routers.
-i.	Starting Interface 
+
+#Starting Interface 
 Main Campus Router
 By default, the router is shut down for security purposes, to ensure the integrity of the network. To power on router, The following commands will be used.
-Router>enable or en – To enable the router
-Router# Configure terminal or config t – To change to global configuration mode.
-Router(config)# interface Gig0/0 – To start the interface GigabitEthernet0/0
-Router(config-if)# No shutdown – To power on the interface.
-Router(config-f) # ex – To exit the interface
-Router(config)# do wr – To save the configuration
+Router>enable or en 
+Router# Configure terminal or config t 
+Router(config)# interface Gig0/0 
+Router(config-if)# No shutdown 
+Router(config-f) # ex 
+Router(config)# do wr 
 ![image](https://github.com/user-attachments/assets/df6ffb50-60e7-47ec-902a-8af69a448cf9)
 
 # Clock Rate Configuration
@@ -89,20 +92,20 @@ Switch(config-if)# switchport mode access ---- switch the port to access mode
 Switch(config-if)# switchport access vlan 10 ---- creating of vlan and assigning value
 
 2nd VLAN (20) Will be assigned to the HR Department
-Switch>enable ------ To enable the switch
-Switch#configure terminal ------ Enter global configuration
-Switch(config)# int range fa0/1–24 ----- interface range on FastEthernet
-Switch(config-if)# switchport mode access ----- switch the port to access mode
-Switch(config-if)# switchport access vlan 20 ----- creating of vlan and assigning value
+Switch>enable 
+Switch#configure terminal 
+Switch(config)# int range fa0/1–24 
+Switch(config-if)# switchport mode access 
+Switch(config-if)# switchport access vlan 20 
 
 3rd VLAN(30) Will be assigned to the Finance Department
-Switch>enable — — To enable the switch
-Switch#configure terminal — — -Enter global configuration
-Switch(config)# int range fa0/8–10 -— interface range on FastEthernet
-Switch(config-if)# switchport mode access — switch the port to access mode
-Switch(config-if)# switchport access vlan 30 — creating of vlan and assigning value
-Switch(config-if)# exit — exit the interface
-Switch(config)# do write — — To save the configuration.
+Switch>enable 
+Switch#configure terminal 
+Switch(config)# int range fa0/8–10 
+Switch(config-if)# switchport mode access 
+Switch(config-if)# switchport access vlan 30
+Switch(config-if)# exit 
+Switch(config)# do write 
 
 Note: The same process can be repeated for all VLANs. Importantly, VLAN configuration must also be done on the Layer 3 switches because these switches handle routing between VLANs. The Layer 3 switch needs to understand the source VLAN of the incoming traffic to route it correctly. Refer to the next command for further details.
 
@@ -118,15 +121,16 @@ For connection to be successful between the host in Main Campus and Branch Campu
 In networking, a trunk refers to a communication channel or link that carries multiple VLANs between switches, routers, or other network devices. Trunks are essential for enabling communication between devices in different VLANs and are commonly used in larger networks where VLAN segmentation is implemented.
 
 #Trunk Configuration
-switch>en or enable ----- Both can work perfectly well
-switch# configure terminal or config t ------ The two phrases perform the same functions.
-switch(config) #int fa0/1 ----- initiate the interface FasthEthenet, which is the gateway interface
+switch>en or enable 
+switch# configure terminal or config t 
+switch(config) #int fa0/1 
 Switch(config)# switchport trunk encapsulation dot1q
-switch(config-if)# switchport mode trunk ----- trunk mode is activated and assigned to Fa0/1
+switch(config-if)# switchport mode trunk 
 switch(config-if)# ex or exit
 switch(config)# do wr or do write
 Note: The same process can be carried out on the Branch Layer 3 switch.
-iii.	Assigning IP Addresses To The Interface on The Router
+
+Assigning IP Addresses To The Interface on The Router
 We have discussed in our previous project how subnetting is done. A link will be provided to have a look at it.
 
 MAIN Campus Router
@@ -134,17 +138,18 @@ The main router has two networks connected to its interface. The network is 10.1
 Router>en
 Router#config t
 Router(config) # int Se0/1/0
-Router(config-if) # ip address 10.10.10.5 255.255.255.252 – Add IP and Subnet mask
+Router(config-if) # ip address 10.10.10.5 255.255.255.252 
 Router(config-if # ex
 Router(config) # int  Se0/1/1
-Router(config-if) # ip address 10.10.10.1 255.255.255.252 – Add IP and Subnet mask
+Router(config-if) # ip address 10.10.10.1 255.255.255.252
 Router(config-if) # do wr
+
 Branch Router
 The branch router has one network attached to its interface. The network is 10.10.10.0 with a subnet mask of 255.255.255.252
 Router>en
 Router#config t
 Router(config) # int Se0/2/0
-Router(config-if) # ip address 10.10.10.2 255.255.255.252 – Add IP and Subnet mask
+Router(config-if) # ip address 10.10.10.2 255.255.255.252 
 Router(config-if) # do wr
 
 #Cloud Router
@@ -152,25 +157,25 @@ The cloud router has two networks attached to its interfaces. Network 20.0.0.0 a
 Router>en
 Router#config t
 Router(config) # int Se0/1/0
-Router(config-if) # ip address 10.10.10.6 255.255.255.252 – Add IP and Subnet mask
+Router(config-if) # ip address 10.10.10.6 255.255.255.252 
 Router(config-if # ex
 Router(config) # int  gig0/0
-Router(config-if) # ip address 20.0.0.1 255.255.255.252 – Add IP and Subnet mask
+Router(config-if) # ip address 20.0.0.1 255.255.255.252 
 Router(config-if) # do wr
 
 #Inter-VLAN routing configuration
 This process involves assigning VLAN to the default gateway (10, 20, and 30)
 Router(config) int g0/0.10
 Router(config-subif) # encapsulation dot1q 10
-Router(config-subif) # ip add 192.168.1.1 255.255.255.0 — the first ip address of the first subnet will be assigned to the interface
+Router(config-subif) # ip add 192.168.1.1 255.255.255.0 
 Router(config-subif) #exit
 Router(config) int g0/0.20
 Router(config-subif) # encapsulation dot1q 20
-Router(config-subif) # ip add 192.168.2.1 255.255.255.0 — the first ip address of the second subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.2.1 255.255.255.0 
 Router(config-subif) #exit
 Router(config) int g0/0.30
 Router(config-subif) # encapsulation dot1q 30
-Router(config-subif) # ip add 192.168.3.1  255.255.255.0 — the first IP address of the third subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.3.1  255.255.255.0 
 Router(config-subif) #exit
 Router(config) # do wr
 Router(config) int g0/0.40
@@ -180,57 +185,57 @@ Router(config-subif) #exit
 Router(config) # do wr
 Router(config) int g0/0.50
 Router(config-subif) # encapsulation dot1q 50
-Router(config-subif) # ip add 192.168.5.1  255.255.255.0 — the first IP address of the third subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.5.1  255.255.255.0 
 Router(config-subif) #exit
 Router(config) # do wr
 Router(config) int g0/0.60
 Router(config-subif) # encapsulation dot1q 60
-Router(config-subif) # ip add 192.168.6.1  255.255.255.0 — the first IP address of the third subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.6.1  255.255.255.0 
 Router(config-subif) #exit
 Router(config) # do wr
 Router(config) int g0/0.70
 Router(config-subif) # encapsulation dot1q 70
-Router(config-subif) # ip add 192.168.7.1  255.255.255.0 — the first IP address of the third subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.7.1  255.255.255.0 
 Router(config-subif) #exit
 Router(config) # do wr
 Router(config) int g0/0.80
 Router(config-subif) # encapsulation dot1q 80
-Router(config-subif) # ip add 192.168.8.1  255.255.255.0 — the first IP address of the third subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.8.1  255.255.255.0 
 Router(config-subif) #exit
 Router(config) # do wr
 
 #Branch Campus Router
 Router(config) int g0/0.90
 Router(config-subif) # encapsulation dot1q 90
-Router(config-subif) # ip add 192.168.9.1 255.255.255.0 — the first ip address of the first subnet will be assigned to the interface
+Router(config-subif) # ip add 192.168.9.1 255.255.255.0 
 Router(config-subif) #exit
 Router(config) int g0/0.100
 Router(config-subif) # encapsulation dot1q 100
-Router(config-subif) # ip add 192.168.10.1 255.255.255.0 — the first ip address of the second subnet will be assigned to this interface
+Router(config-subif) # ip add 192.168.10.1 255.255.255.0 
 Router(config-subif) #exit
 
 #DHCP Server Configuration
 As requested in the case study, the device will obtain IP automatically, and DHCP service must be enabled and configured on the router.  The following command is used to configure dhcp server to allocate IP to device dynamically.	
 Router>enable or en
 Router#config t or configure terminal
-Router(config)# service dhcp — Enable DHCP service
-Router(dhcp-config)# ip dhcp pool Admin-Pool --- This command creates a pool for Admin where an IP address can be assigned to a device automatically once it is connected.
-Router(dhcp-config)# network 192.168.1.0 255.255.255.192 --- The network ID of VLAN 10
-Router(dhcp-config)# default-router 192.168.1.1 ---- Default gateway address of VLAN 10
-Router(dhcp-config)# dns-server 192.168.1.1---- any IP can be assigned on a dns server.
-Router(dhcp-config)# domain-name admin.com ---- assigning a domain name (Not compulsory)
+Router(config)# service dhcp 
+Router(dhcp-config)# ip dhcp pool Admin-Pool 
+Router(dhcp-config)# network 192.168.1.0 255.255.255.192 
+Router(dhcp-config)# default-router 192.168.1.1 
+Router(dhcp-config)# dns-server 192.168.1.1
+Router(dhcp-config)# domain-name admin.com 
 Router(dhcp-config)# exit
-Router(dhcp-config)# ip dhcp pool HR --- This command creates a pool for the finance department where an IP address can be assigned to a device automatically once it is connected.
-Router(dhcp-config)# network 192.168.2.0  255.255.255.0---- The network ID of VLAN 20
-Router(dhcp-config)# default-router 192.168.2.1 ---- Default gateway address of VLAN 10
-Router(dhcp-config)# dns-server 192.168.2.1 --- any IP can be assigned on a dns server.
-Router(dhcp-config)# domain-name finance.com ---- assigning a domain name (Not compulsory)
+Router(dhcp-config)# ip dhcp pool HR 
+Router(dhcp-config)# network 192.168.2.0  255.255.255.0
+Router(dhcp-config)# default-router 192.168.2.1 
+Router(dhcp-config)# dns-server 192.168.2.1 
+Router(dhcp-config)# domain-name finance.com 
 Router(dhcp-config)# exit
-Router(dhcp-config)# ip dhcp pool Finance — — This command creates a pool for Admin/IT department where an IP address can be assigned to a device automatically once it is connected.
-Router(dhcp-config)# network 192.168.3.0 255.255.255.0— — The network ID of VLAN 30
-Router(dhcp-config)# default-router 192.168.3.1 — — Default gateway address of VLAN 30
-Router(dhcp-config)# dns-server 192.168.3.1 — any IP can be assigned on a dns server.
-Router(dhcp-config)# domain-name csr.com — — assigning a domain name (Not compulsory)
+Router(dhcp-config)# ip dhcp pool Finance 
+Router(dhcp-config)# network 192.168.3.0 255.255.255.0
+Router(dhcp-config)# default-router 192.168.3.1
+Router(dhcp-config)# dns-server 192.168.3.1 
+Router(dhcp-config)# domain-name csr.com 
 Router(dhcp-config)# exit
 Router(config)# do wr
 
