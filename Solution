@@ -1,0 +1,32 @@
+
+#Solution
+In addressing the case study given, we first design the topology of the network.
+Task 1
+This section deals with planning, and designing the proposed network. The image depicted below shows the network topology for the University. The design has a total of three routers, a total of ten layer 2 switches and two layer 3 switches. There are also three servers including an external server hosted in a cloud environment. Each department and faculty has an end device attached for user usage. Each of the hosts is on a separate IP Network and different VLAN. The network is designed to allow scalability in case of expansion in the future.
+
+The following are the IP networks for each department/Faculty
+
+#Main Campus Network Requirements
+Admin – 192.168.1.0 with Subnet mask of 255.255.255.0 (Class C)
+HR – 192.168.2.0 with Subnet mask of 255.255.255.0 (Class C)
+Finance – 192.168.3.0 with Subnet mask of 255.255.255.0 (Class C)
+Economics– 192.168.4.0 with Subnet mask of 255.255.255.0 (Class C)
+E & C – 192.168.5.0 with Subnet mask of 255.255.255.0 (Class C)
+A & D – 192.168.6.0 with Subnet mask of 255.255.255.0 (Class C)
+Student – 192.168.7.0 with Subnet mask of 255.255.255.0 (Class C)
+IT– 192.168.8.0 with Subnet mask of 255.255.255.0 (Class C)
+
+#Branch Campus
+Staff – 192.168.9.0 with Subnet mask of 255.255.255.0 (Class C)
+Student’s Lab – 192.168.10.0 with Subnet mask of 255.255.255.0 (Class C)
+
+#Cloud Router
+Network 1– 20.0.0.0 with Subnet Mask 255.255.255.252 (Class A)
+Network 2 – 10.10.10.4 with Subnet Mask 255.255.255.252 (Class A)
+
+#Main Campus Router
+Network 1 – 10.10.10.0 with Subnet Mask 255.255.255.252 (Class A)
+Network 2 – 10.10.10.4 with Subnet Mask 255.255.255.252 (Class A)
+
+#Branch Campus Router
+Network 1 – 10.10.10.0 with Subnet Mask 255.255.255.252 (Class A)
