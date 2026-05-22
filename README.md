@@ -1,4 +1,5 @@
-# Campus Network
+#Design and Evaluation of a Reliable and Scalable Campus Network System
+
 1.	Case Study
 Benue State University is a large institution of learning located in the north-central of Nigeria. The University has two campuses, the main and branch campus. The two campuses are situated 30 miles apart. The University’s students and staff are distributed into 4 faculties, these include the faculty of Health & Science, Economics, Engineering & Computing and ART& Design. Each member of the staff has PCs and Student access to PCs in the LABs.
 
